@@ -39,7 +39,7 @@ trap cleanup ERR
 if ! python3 -m venv --help > /dev/null 2>&1; then
     echo "python3-venv is not installed. Installing it..."
     sudo apt-get update
-    sudo apt-get install -y python3-venv
+    sudo  apt install -y python3.12-venv
 fi
 
 # Check and install supervisorctl if necessary
