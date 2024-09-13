@@ -35,12 +35,10 @@ cleanup() {
 # Set up a trap to run cleanup on errors
 trap cleanup ERR
 
-# Check and install python3-venv if necessary
-if ! python3 -m venv --help > /dev/null 2>&1; then
-    echo "python3-venv is not installed. Installing it..."
-    sudo apt-get update
-    sudo  apt install -y python3.12-venv
-fi
+echo "Install virtualenv"
+sudo apt-get update
+sudo  apt install virtualenv
+
 
 # Check and install supervisorctl if necessary
 if ! command -v supervisorctl &> /dev/null; then
@@ -70,7 +68,7 @@ fi
 # Create and activate the virtual environment
 if [ ! -d "$VENV_DIR" ]; then
     echo "Virtual environment not found. Creating a new one..."
-    python3 -m venv "$VENV_DIR"
+    virtualenv  "$VENV_DIR"
 fi
 source "$VENV_DIR/bin/activate"
 
