@@ -20,8 +20,8 @@ Follow these steps to set up and install the LocalTunnel Telegram Bot:
    Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/mad1009/tunnel_bot
+   cd tunnel_bot
 
 2. **Run the Setup Script**
     Execute the setup script to set up the Python environment, install dependencies, and configure Supervisor:
@@ -68,4 +68,3 @@ For any questions or feedback, please contact [Mad](mailto:moadakharraz.@gmail.c
 Contributions are welcome! If you find any issues or have suggestions for improvements, please submit an issue or a pull request. Make sure to follow the project's coding standards and guidelines.
 
 This project is intended for fun and personal use only. I do not take any responsibility for any errors or issues that may occur while using this project. Use it at your own risk.
-
