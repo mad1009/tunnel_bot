@@ -28,7 +28,7 @@ cleanup() {
     if [ -d "$APP_LOG_DIR" ]; then
         echo "Removing log directory..."
         cat "$APP_LOG_DIR/$APP_NAME.err.log"
-        sudo rm -rf "$APP_LOG_DIR"
+        #sudo rm -rf "$APP_LOG_DIR"
     fi
     echo "Cleanup complete."
 }
@@ -92,8 +92,8 @@ echo "Creating Supervisor configuration file..."
 
 sudo tee "$SUPERVISOR_CONF_FILE" > /dev/null <<EOL
 [program:$APP_NAME]
-command=${VENV_DIR}/bin/python ${SCRIPT_NAME}
-directory=$(pwd)
+command=$PWD/${VENV_DIR}/bin/python $PWD/${SCRIPT_NAME}
+directory=$PWD
 autostart=true
 autorestart=true
 stderr_logfile=${APP_LOG_DIR}/$APP_NAME.err.log
@@ -102,6 +102,8 @@ EOL
 
 # Create log directory if it does not exist
 sudo mkdir -p "$APP_LOG_DIR"
+touch "$APP_LOG_DIR/$APP_NAME.err.log"
+touch "$APP_LOG_DIR/$APP_NAME.out.log"
 
 # Update Supervisor and restart
 sudo supervisorctl reread
