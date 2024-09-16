@@ -1,0 +1,6 @@
+{
+    "services": [
+        {"name": "Mad Manager", "port": 8000},
+        {"name": "Invoice App", "port": 9000}
+    ]
+}
