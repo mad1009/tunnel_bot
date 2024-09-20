@@ -21,11 +21,24 @@ TELEGRAM_BOT_TOKEN = os.getenv('BOT_TOKEN')
 TARGET_PORT = int(os.getenv('TARGET_PORT'))
 TUNNEL_DURATION = int(os.getenv('TUNNEL_DURATION', 3600))
 
+def load_ports():
+    try:
+        with open('services.json') as f:
+            return json.load(f)
+    except Exception as e:
+        return None
+
+
+
 # Initialize variables
 localtunnel_process = None
 public_url = None
 password = None
 auto_stop_timer = None
+
+# Load ports and services from the JSON file
+services = load_ports().get('services', [])
+active_tunnels = {}
 
 # Initialize Bot and Dispatcher
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
@@ -63,13 +76,6 @@ def humanize_duration(seconds):
         return f"{int(hours)} hours and {int(minutes)} minutes"
     else:
         return f"{int(minutes)} minutes"
-
-def load_ports():
-    try:
-        with open('services.json') as f:
-            return json.load(f)
-    except Exception as e:
-        return None
 
 
 # Function to stop LocalTunnel after a set duration
@@ -158,9 +164,6 @@ def get_persistent_keyboard():
     )
     return keyboard
 
-# Load ports and services from the JSON file
-services = load_ports().get('services', [])
-active_tunnels = {}
 
 # Function to present services in a list for selection
 def get_service_keyboard():
