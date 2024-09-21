@@ -6,7 +6,8 @@ The LocalTunnel Telegram Bot project automates the process of exposing a local w
 
 ## Features
 
-- Start and stop LocalTunnel sessions.
+- Authorization system to prevent unauthenticated users from accesing the bot.
+- Start and stop LocalTunnel sessions directly from telegram.
 - Retrieve and display the tunnel URL and password.
 - Automatic tunnel termination after a specified duration.
 - User-friendly Telegram interface with command support.
@@ -66,5 +67,7 @@ For any questions or feedback, please contact [Mad](mailto:moadakharraz.@gmail.c
 ## Contribution
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please submit an issue or a pull request. Make sure to follow the project's coding standards and guidelines.
+
+## Disclamer
 
 This project is intended for fun and personal use only. I do not take any responsibility for any errors or issues that may occur while using this project. Use it at your own risk.
