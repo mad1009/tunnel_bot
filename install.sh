@@ -5,8 +5,7 @@ set -e  # Exit on error
 # Define variables
 APP_NAME="localtunnel_manager"  # Change this to your application name
 VENV_DIR="venv"
-SCRIPT_NAME="main.py"
-INSTALL_SCRIPT="../setup_env.sh"
+SCRIPT_NAME="bot.py"
 SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d"
 SUPERVISOR_CONF_FILE="$SUPERVISOR_CONF_DIR/${APP_NAME}.conf"
 LOG_DIR="/var/log/supervisor"
@@ -92,7 +91,7 @@ echo "Creating Supervisor configuration file..."
 
 sudo tee "$SUPERVISOR_CONF_FILE" > /dev/null <<EOL
 [program:$APP_NAME]
-command=$PWD/${VENV_DIR}/bin/python $PWD/${SCRIPT_NAME}
+command=$PWD/${VENV_DIR}/bin/python $PWD/src/${SCRIPT_NAME}
 directory=$PWD
 autostart=true
 autorestart=true
