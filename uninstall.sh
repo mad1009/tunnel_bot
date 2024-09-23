@@ -23,4 +23,5 @@ if [ -d "$APP_LOG_DIR" ]; then
     echo "Removing log directory..."
     cat "$APP_LOG_DIR/$APP_NAME.err.log"
     sudo rm -rf "$APP_LOG_DIR"
-echo "Cleanup success"
+    echo "Cleanup success"
+fi
