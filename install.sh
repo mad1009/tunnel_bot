@@ -3,7 +3,7 @@
 set -e  # Exit on error
 
 # Define variables
-APP_NAME="localtunnel_manager"  # Change this to your application name
+APP_NAME="localtunnel_manager" 
 VENV_DIR="venv"
 SCRIPT_NAME="bot.py"
 SUPERVISOR_CONF_DIR="/etc/supervisor/conf.d"
@@ -27,7 +27,7 @@ cleanup() {
     if [ -d "$APP_LOG_DIR" ]; then
         echo "Removing log directory..."
         cat "$APP_LOG_DIR/$APP_NAME.err.log"
-        #sudo rm -rf "$APP_LOG_DIR"
+        sudo rm -rf "$APP_LOG_DIR"
     fi
     echo "Cleanup complete."
 }
